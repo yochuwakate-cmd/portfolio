@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="th" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yochuwa Katedam — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/6e47ef470dd19698c911332a9b4d1cf4?family=Neue+Haas+Grotesk+Text+Pro"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/dec0d9b4e22ca588dc20e1e2e09a59b5?family=Neue+Haas+Grotesk+Display+Pro+55+Roman"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="scrollProgress"></div>
+
+    <!-- ============================================================ -->
+    <!--  วีดีโอพื้นหลัง (แสดงเฉพาะตอนอยู่หน้า "เกี่ยวกับฉัน") -->
+    <!-- ============================================================ -->
+    <div class="about-bg-video-wrap" id="aboutBgVideoWrap" aria-hidden="true">
+      <video
+        class="about-bg-video"
+        id="aboutBgVideo"
+        muted
+        loop
+        playsinline
+        preload="none"
+      >
+        <source src="video/bg-video.mp4" type="video/mp4" />
+      </video>
+      <div class="about-bg-overlay"></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--  Lightbox — ดูรูปผลงาน/กิจกรรม/ใบรับรองแบบเต็มขนาด -->
+    <!-- ============================================================ -->
+    <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="" />
+      </div>
+      <button
+        class="lightbox-btn lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="ปิด"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <button
+        class="lightbox-btn lightbox-prev"
+        id="lightboxPrev"
+        type="button"
+        aria-label="รูปก่อนหน้า"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button
+        class="lightbox-btn lightbox-next"
+        id="lightboxNext"
+        type="button"
+        aria-label="รูปถัดไป"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="logo">yochuwa<span>.</span>k</div>
+        <div class="nav-links" id="navLinks">
+          <span class="indicator" id="indicator"></span>
+          <a href="#home" data-page="home" class="active" data-i18n="nav_home"
+            >หน้าแรก</a
+          >
+          <a href="#project" data-page="project" data-i18n="nav_project"
+            >ผลงาน</a
+          >
+          <a
+            href="#certificate"
+            data-page="certificate"
+            data-i18n="nav_certificate"
+            >ใบรับรอง</a
+          >
+          <a href="#activity" data-page="activity" data-i18n="nav_activity"
+            >กิจกรรม</a
+          >
+          <a href="#about" data-page="about" data-i18n="nav_about"
+            >เกี่ยวกับฉัน</a
+          >
+        </div>
+        <div class="nav-right">
+          <div class="lang-switch" id="langSwitch">
+            <button data-lang="th" class="active">TH</button>
+            <button data-lang="en">EN</button>
+          </div>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- HOME PAGE -->
+      <!-- ============================================================ -->
+      <!--  หน้า: หน้าแรก (Home) -->
+      <!-- ============================================================ -->
+
+      <section id="home" class="page active">
+        <div class="home-hero">
+          <div class="home-text">
+            <div class="eyebrow stagger-item" data-i18n="home_eyebrow">
+              DEVELOPER
+            </div>
+            <h1 class="stagger-item">Yochuwa Katedam</h1>
+            <div class="role-line stagger-item">
+              <span id="roleText">Junior / Intermediate Developer</span
+              ><span class="cursor"></span>
+            </div>
+            <p class="lede stagger-item" data-i18n="home_lede">
+              ชื่นชอบการเขียนโค้ด ถนัดใช้งาน VS Code เป็นเครื่องมือหลัก
+              มีประสบการณ์ทำระบบอัตโนมัติด้วย n8n และเชื่อมต่อ LINE Official
+              Account พอมีประสบการณ์ใช้งาน Figma, Docker, Supabase และ
+              WordPress รวมถึงมีความรู้พื้นฐานด้าน Database และเคยใช้
+              Flowchart ประกอบการทำงาน
+            </p>
+            <div class="btn-row stagger-item">
+              <a
+                href="#project"
+                data-page="project"
+                class="btn primary"
+                data-i18n="btn_view_projects"
+                >ดูผลงาน</a
+              >
+              <a
+                href="#about"
+                data-page="about"
+                class="btn ghost"
+                data-i18n="btn_about"
+                >เกี่ยวกับฉัน</a
+              >
+            </div>
+          </div>
+
+          <div class="profile-container stagger-item">
+            <div class="profile-img-wrap">
+              <img
+                src="https://img1.pic.in.th/images/IMG_1667.jpg"
+                alt="Yochuwa Katedam"
+              />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title scroll-reveal" data-i18n="overview_title">
+          ภาพรวมข้อมูล (Overview)
+        </h2>
+
+        <div class="bento-grid">
+          <div class="bento-card col-7 scroll-reveal">
+            <h3 class="card-title" data-i18n="bento_about_title">
+              เกี่ยวกับตัวผม
+            </h3>
+            <p
+              class="card-desc"
+              style="margin-bottom: 10px"
+              data-i18n="bento_about_p1"
+            >
+              สวัสดีครับผม Yochuwa Katedam
+              ชื่นชอบการเขียนโค้ดและถนัดใช้งาน VS Code เป็นเครื่องมือหลักในการพัฒนา
+              มีประสบการณ์สร้างระบบอัตโนมัติด้วย n8n และเชื่อมต่อกับ LINE
+              Official Account
+            </p>
+            <p class="card-desc" data-i18n="bento_about_p2">
+              พอมีประสบการณ์ใช้งาน Figma สำหรับออกแบบ UI, Docker, Supabase
+              และ WordPress รวมถึงมีความรู้พื้นฐานด้าน Database เคยใช้
+              Flowchart วางแผนขั้นตอนการทำงาน และเคยพัฒนาแอปพลิเคชันด้วย
+              AppSheet ครับ
+            </p>
+          </div>
+
+          <div class="bento-card col-5 scroll-reveal">
+            <h3 class="card-title" data-i18n="bento_edu_title">การศึกษา</h3>
+            <div class="timeline">
+              <div class="t-item">
+                <div class="t-year">2022 — 2026</div>
+                <div class="t-heading" data-i18n="edu_deg1">
+                  ปริญญาตรี (อุดมศึกษา)
+                </div>
+                <div class="t-sub" data-i18n="edu_sch1">มหาวิทยาลัยกรุงเทพ</div>
+              </div>
+              <div class="t-item">
+                <div class="t-year">2016 — 2022</div>
+                <div class="t-heading" data-i18n="edu_deg2">
+                  มัธยมศึกษาตอนปลาย
+                </div>
+                <div class="t-sub" data-i18n="edu_sch2">
+                  โรงเรียนภูเก็ตวิทยาลัย
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card col-7 scroll-reveal">
+            <h3 class="card-title" data-i18n="bento_skill_title">
+              ความคุ้นเคยกับเครื่องมือ (Skill Levels)
+            </h3>
+            <div class="skill-list">
+              <div>
+                <div class="skill-item-head">
+                  <span>VS Code (Coding)</span><span>85%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-head">
+                  <span>n8n (Automation Workflow)</span><span>80%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="80%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-head">
+                  <span>LINE OA Integration</span><span>75%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="75%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-head">
+                  <span>Figma (UI/UX Design)</span><span>60%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="60%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-head">
+                  <span>Docker (Containerization)</span><span>60%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="60%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-head">
+                  <span>Supabase (Database & Backend)</span><span>60%</span>
+                </div>
+                <div class="skill-progress">
+                  <div class="skill-fill-bar" data-target="60%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card col-5 scroll-reveal">
+            <h3 class="card-title" data-i18n="bento_tools_title">
+              เทคโนโลยีที่ใช้บ่อย
+            </h3>
+            <p class="card-desc" data-i18n="bento_tools_desc">
+              Tech Stack ที่ใช้เป็นประจำ:
+            </p>
+            <div class="chips">
+              <span
+                class="chip"
+                style="border-color: var(--accent); color: var(--accent)"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>VS Code</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>n8n</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>LINE OA</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>Figma</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>Docker</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14a9 3 0 0 0 18 0V5"></path><path d="M3 12a9 3 0 0 0 18 0"></path></svg>Supabase</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>WordPress</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>Database</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>Flowchart</span
+              >
+              <span class="chip"
+                ><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>AppSheet</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!--  จบหน้า: หน้าแรก (Home) -->
+      <!-- ============================================================ -->
+
+      <!-- PROJECT PAGE -->
+      <!-- ============================================================ -->
+      <!--  หน้า: ผลงาน (Project) -->
+      <!-- ============================================================ -->
+
+      <section id="project" class="page">
+        <div class="page-head">
+          <div class="eyebrow stagger-item">PORTFOLIO</div>
+          <h2 class="stagger-item" data-i18n="project_title">
+            ผลงานทั้งหมด (Projects)
+          </h2>
+          <p class="stagger-item" data-i18n="project_desc">
+            สามารถเลื่อนลงเพื่อรับชมรายละเอียดและรูปภาพของแต่ละผลงานได้อย่างต่อเนื่อง
+          </p>
+        </div>
+
+        <div class="project-feed">
+          <!-- Project Block 1: n8n Smart RAG AI Agent -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>n8n Smart RAG AI Agent for Hotel Support</h3>
+              </div>
+              <span class="project-tag">n8n & AI Agent</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p1_desc">
+              ระบบแชทบอตอัตโนมัติด้วย n8n ร่วมกับ RAG AI Agent, Supabase Vector
+              DB และ Google Gemini เชื่อมต่อระบบแชทกับ LINE Official Account
+              สำหรับตอบคำถามโรงแรมแบบแม่นยำ
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/imagef7b8004df21d1b6e.png"
+                  alt="n8n Image 5"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/image-2de97a6e48077b93c.png"
+                  alt="n8n Image 4"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/IMG_5074-portrait.png"
+                  alt="n8n Image 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Screenshot-2569-07-29-at-12.07.33AM-portrait.png"
+                  alt="n8n Image 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/IMG_5032-portrait.png"
+                  alt="n8n Image 3"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block: Web Portfolio -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>Web Portfolio</h3>
+              </div>
+              <span class="project-tag">Web Development</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p_webportfolio_desc">
+              เว็บไซต์พอร์ตโฟลิโอส่วนตัว ออกแบบและพัฒนาด้วย HTML, CSS และ
+              JavaScript รองรับการสลับหน้าแบบ crossfade, สลับธีมสว่าง/มืด
+              และสลับภาษาไทย/อังกฤษ
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-29-7-2569-BE-at-17.44.png"
+                  alt="Web Portfolio Screenshot 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-29-7-2569-BE-at-17.47.png"
+                  alt="Web Portfolio Screenshot 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-29-7-2569-BE-at-17.47.png"
+                  alt="Web Portfolio Screenshot 3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-29-7-2569-BE-at-17.47-1.png"
+                  alt="Web Portfolio Screenshot 4"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-29-7-2569-BE-at-17.48.png"
+                  alt="Web Portfolio Screenshot 5"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-29-7-2569-BE-at-17.45.png"
+                  alt="Web Portfolio Screenshot 6"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block 2: System Architecture & Dashboard -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>System Architecture & Dashboard Project</h3>
+              </div>
+              <span class="project-tag">System & Automation</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p2_new_desc">
+              การออกแบบโครงสร้างระบบและการจัดการแดชบอร์ดข้อมูลเพื่อเพิ่มประสิทธิภาพในการทำงานและการประมวลผล
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-27-7-2569-BE-at-22.15.png"
+                  alt="Project Screenshot 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-27-7-2569-BE-at-22.15.png"
+                  alt="Project Screenshot 2"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block 3: Application & Workflow Management System -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>Application & Workflow Management System</h3>
+              </div>
+              <span class="project-tag">App & Database Management</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p3_new_desc">
+              ระบบบริหารจัดการเวิร์กโฟลว์และฐานข้อมูล พัฒนาขึ้นเพื่อช่วยอำนวยความสะดวกในการจัดเก็บ ค้นหา และประมวลผลข้อมูลขององค์กรอย่างเป็นระบบ
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/188a18237c211e1ee.png"
+                  alt="App Showcase 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/7bae604649020f34c.png"
+                  alt="App Showcase 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/209f8bfe5cc95e70c.png"
+                  alt="App Showcase 3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/3c95988dd3f57cee4.png"
+                  alt="App Showcase 4"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/47092e0b478b2a444.png"
+                  alt="App Showcase 5"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/54e43a24eecb7c0d7.png"
+                  alt="App Showcase 6"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/9d3b892bbca6d0f65.png"
+                  alt="App Showcase 7"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block 4: AppSheet Business & Operations Platform -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>AppSheet Business & Operations Platform</h3>
+              </div>
+              <span class="project-tag">AppSheet & Cloud Solutions</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p4_new_desc">
+              ระบบบริหารจัดการการทำงานและโซลูชันองค์กรผ่าน AppSheet เพื่อปรับปรุงกระบวนการทำงานให้เป็นดิจิทัล ตรวจสอบข้อมูลแบบเรียลไทม์ และเพิ่มความคล่องตัวในการปฏิบัติงาน
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/9fcd320e-860a-49fc-bcd5-35abc9a75dd2.png"
+                  alt="AppSheet Showcase 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/82e9ba74-eec5-4df6-969d-06dab8873ec4.png"
+                  alt="AppSheet Showcase 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/90bac0a4-bd80-4cf7-8a03-ab8c3096e97e.png"
+                  alt="AppSheet Showcase 3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/appsheet.png"
+                  alt="AppSheet Showcase 4"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block 5: System Flowchart & Standard Operating Procedure (SOP) -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>System Flowchart & Standard Operating Procedure (SOP)</h3>
+              </div>
+              <span class="project-tag">Process Architecture & Diagram</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p5_new_desc">
+              การออกแบบผังการทำงาน (Flowchart) และกำหนดมาตรฐานขั้นตอนการปฏิบัติงาน (SOP) เพื่อสร้างโครงสร้างกระบวนการทำงานที่ชัดเจน เป็นระบบ และเพิ่มประสิทธิภาพการทำงานร่วมกัน
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Flowchart.drawio.png"
+                  alt="System Flowchart Diagram"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/SOP.drawio.png"
+                  alt="Standard Operating Procedure Diagram"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Block 6: Database Architecture & System Overview -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>Database Architecture & System Overview</h3>
+              </div>
+              <span class="project-tag">Database Schema & Architecture</span>
+            </div>
+            <p class="project-desc-text" data-i18n="p6_new_desc">
+              การวางโครงสร้างฐานข้อมูล (Database Schema/ERD) การออกแบบระบบแลกเปลี่ยนสื่อสารข้อมูล และการวางแผนภูมิภาพรวมสถาปัตยกรรมระบบ เพื่อรองรับการเชื่อมต่อและประมวลผลข้อมูลอย่างเป็นระบบ
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/LAB06_1660705235.png"
+                  alt="Database Architecture Diagram 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/LAB06_16607052352.png"
+                  alt="Database Architecture Diagram 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/LAB06_16607052353.png"
+                  alt="Database Architecture Diagram 3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-29-7-2569-BE-at-01.17.png"
+                  alt="System Overview Diagram"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!--  จบหน้า: ผลงาน (Project) -->
+      <!-- ============================================================ -->
+
+      <!-- CERTIFICATE PAGE -->
+      <!-- ============================================================ -->
+      <!--  หน้า: ใบรับรอง (Certificate) -->
+      <!-- ============================================================ -->
+
+      <section id="certificate" class="page">
+        <div class="page-head">
+          <div class="eyebrow stagger-item">CERTIFICATES</div>
+          <h2 class="stagger-item" data-i18n="cert_title">ใบรับรองการอบรม</h2>
+          <p class="stagger-item" data-i18n="cert_desc">
+            สามารถเลื่อนลงเพื่อรับชมรายละเอียดและภาพใบรับรองได้อย่างต่อเนื่อง
+          </p>
+        </div>
+
+        <div class="project-feed">
+          <!-- Cert Block 1: Cybersecurity Foundation Course -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3 data-i18n="cert_ncsa_title">
+                  Cybersecurity Foundation Course
+                </h3>
+              </div>
+              <span class="project-tag">NCSA / สกมช.</span>
+            </div>
+            <p class="project-desc-text" data-i18n="cert_ncsa_desc">
+              สำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ
+              (สกมช. / NCSA) • ผ่านการอบรม 21 ชั่วโมง (12 เม.ย. 2569)
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-27-7-2569-BE-at-23.32.png"
+                  alt="Cybersecurity Foundation Course Certificate - NCSA"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert Block 2: Speex -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3 data-i18n="cert_speex_title">ใบรับรอง Speex</h3>
+              </div>
+              <span class="project-tag">Speex</span>
+            </div>
+            <p class="project-desc-text" data-i18n="cert_speex_desc">
+              ใบรับรองการอบรม/ทดสอบทักษะจาก Speex
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-29-7-2569-BE-at-01.39.png"
+                  alt="Speex Certificate 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-29-7-2569-BE-at-22.05.png"
+                  alt="Speex Certificate 2"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert Block 3: Anthropic AI Training -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3 data-i18n="cert_anthropic_title">
+                  Anthropic AI Training
+                </h3>
+              </div>
+              <span class="project-tag">Anthropic</span>
+            </div>
+            <p class="project-desc-text" data-i18n="cert_anthropic_desc">
+              ใบรับรองการอบรมด้าน AI จาก Anthropic
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/Image-30-7-2569-BE-at-00.15.png"
+                  alt="Anthropic AI Training Certificate 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/Image-30-7-2569-BE-at-00.31.png"
+                  alt="Anthropic AI Training Certificate 2"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!--  จบหน้า: ใบรับรอง (Certificate) -->
+      <!-- ============================================================ -->
+
+      <!-- ACTIVITY PAGE -->
+      <!-- ============================================================ -->
+      <!--  หน้า: กิจกรรม (Activity) -->
+      <!-- ============================================================ -->
+
+      <section id="activity" class="page">
+        <div class="page-head">
+          <div class="eyebrow stagger-item">ACTIVITIES</div>
+          <h2 class="stagger-item" data-i18n="activity_title">
+            กิจกรรมที่เคยเข้าร่วม
+          </h2>
+          <p class="stagger-item">
+            ประมวลภาพบรรยากาศการเข้าร่วมกิจกรรมและการจัดบูทแสดงผลงานต่างๆ
+          </p>
+        </div>
+
+        <div class="project-feed">
+          <!-- Activity Block 1: BU Cyber Fortress Challenge & Career Expo -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>BU Cyber Fortress Challenge & Career Expo</h3>
+              </div>
+              <span class="project-tag">Cybersecurity & Career</span>
+            </div>
+            <p class="project-desc-text">
+              เข้าร่วมกิจกรรมแข่งขันและความรู้ทางด้านความปลอดภัยไซเบอร์ รวมถึงงาน Career Expo เพื่อเสริมสร้างทักษะและเปิดมุมมองด้านอาชีพสายเทคโนโลยี
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/IMG_69849a479dcb1c46bd33.jpg"
+                  alt="BU Cyber Fortress Challenge & Career Expo (1)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/IMG_6977.jpg"
+                  alt="BU Cyber Fortress Challenge & Career Expo (2)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/IMG_6999.jpg"
+                  alt="BU Cyber Fortress Challenge & Career Expo (3)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/IMG_696958ac245a97bd719d.jpg"
+                  alt="BU Cyber Fortress Challenge & Career Expo (4)"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Block 2: IT Empowering Day -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3>เข้าร่วมงาน IT Empowering Day และจัดบูทภายในงาน</h3>
+              </div>
+              <span class="project-tag">Exhibition & Booth</span>
+            </div>
+            <p class="project-desc-text">
+              เพื่อเผยแพร่ความรู้ จัดแสดงผลงาน และสร้างความสัมพันธ์อันดีผ่านการออกบูทประชาสัมพันธ์ในงาน IT Empowering Day
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/IMG_1695.jpg"
+                  alt="บรรยากาศการจัดบูท (ภาพที่ 1)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/IMG_1704ee5597e03bb4f3c1.jpg"
+                  alt="บรรยากาศการจัดบูท (ภาพที่ 2)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img1.pic.in.th/images/IMG_1688e2869e1208ecbe50.jpg"
+                  alt="บรรยากาศการจัดบูท (ภาพที่ 3)"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/image0d6a50f0275045ecb.jpg"
+                  alt="บรรยากาศการจัดบูท (ภาพที่ 4)"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Block 3: Open House -->
+          <div class="project-block scroll-reveal">
+            <div class="project-header">
+              <div class="project-title-area">
+                <h3 data-i18n="a1_title">OPEN HOUSE BANGKOK UNIVERSITY</h3>
+              </div>
+              <span class="project-tag">University Event</span>
+            </div>
+            <p class="project-desc-text" data-i18n="a1_desc">
+              เข้าร่วมกิจกรรมเปิดบ้านเปิดประสบการณ์ มหาวิทยาลัยกรุงเทพ
+            </p>
+
+            <div class="project-images-stack">
+              <div class="project-img-frame scroll-reveal">
+                <img
+                  src="https://img2.pic.in.th/IMG_4874.png"
+                  alt="OPEN HOUSE BANGKOK UNIVERSITY"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!--  จบหน้า: กิจกรรม (Activity) -->
+      <!-- ============================================================ -->
+
+      <!-- ABOUT PAGE -->
+      <!-- ============================================================ -->
+      <!--  หน้า: เกี่ยวกับฉัน (About me) -->
+      <!-- ============================================================ -->
+
+      <section id="about" class="page">
+        <div class="page-head">
+          <div class="eyebrow stagger-item">ABOUT</div>
+          <h2 class="stagger-item" data-i18n="about_title">เกี่ยวกับผม</h2>
+          <p class="stagger-item" data-i18n="about_subtitle">
+            ข้อมูลส่วนตัว ทักษะ และช่องทางติดต่อ
+          </p>
+        </div>
+
+        <div class="about-intro scroll-reveal">
+          <div class="about-photo-wrap">
+            <img
+              src="https://img1.pic.in.th/images/IMG_1667.jpg"
+              alt="Yochuwa Katedam"
+            />
+          </div>
+          <div class="about-intro-text">
+            <h3>Yochuwa Katedam</h3>
+            <p data-i18n="home_role">Junior / Intermediate Developer</p>
+          </div>
+        </div>
+
+        <div class="about-box scroll-reveal">
+          <p style="margin-bottom: 14px" data-i18n="about_p1">
+            ผม Yochuwa Katedam ชื่นชอบการเขียนโค้ด และถนัดใช้งาน VS Code
+            เป็นเครื่องมือหลักในการพัฒนาโปรแกรมและแอปพลิเคชัน
+          </p>
+          <p style="color: var(--muted)" data-i18n="about_p2">
+            มีประสบการณ์ทำระบบอัตโนมัติด้วย n8n เชื่อมต่อกับ LINE Official
+            Account พอมีประสบการณ์ใช้งาน Figma, Docker, Supabase และ
+            WordPress มีความรู้พื้นฐานด้าน Database เคยใช้ Flowchart
+            ประกอบการทำงาน และเคยพัฒนาแอปพลิเคชันด้วย AppSheet ครับ
+          </p>
+        </div>
+
+        <!-- Contact Section -->
+        <h3
+          style="font-size: 20px; font-weight: 700; margin-bottom: 16px"
+          class="scroll-reveal"
+          data-i18n="contact_heading"
+        >
+          ช่องทางติดต่อ (Contact)
+        </h3>
+
+        <div class="bento-grid" style="margin-bottom: 50px">
+          <div class="bento-card col-12 scroll-reveal">
+            <h4
+              style="font-size: 15px; margin-bottom: 16px"
+              data-i18n="contact_direct"
+            >
+              ข้อมูลติดต่อ
+            </h4>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-left">
+                  <div class="contact-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      ></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <span class="label" data-i18n="lbl_email">อีเมล (Email)</span>
+                </div>
+                <div class="contact-right">
+                  <a href="mailto:yochuwa.kate@bumail.net"
+                    >yochuwa.kate@bumail.net</a
+                  >
+                  <button
+                    class="copy-btn"
+                    type="button"
+                    data-copy="yochuwa.kate@bumail.net"
+                    aria-label="Copy email"
+                  >
+                    <svg
+                      class="icon-copy"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="icon-check"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="copy-toast" data-i18n="copied_text"
+                      >คัดลอกแล้ว ✓</span
+                    >
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-left">
+                  <div class="contact-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="label" data-i18n="lbl_phone"
+                    >เบอร์โทร (Phone)</span
+                  >
+                </div>
+                <div class="contact-right">
+                  <a href="tel:0910361910">091-036-1910</a>
+                  <button
+                    class="copy-btn"
+                    type="button"
+                    data-copy="091-036-1910"
+                    aria-label="Copy phone number"
+                  >
+                    <svg
+                      class="icon-copy"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="icon-check"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="copy-toast" data-i18n="copied_text"
+                      >คัดลอกแล้ว ✓</span
+                    >
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-left">
+                  <div class="contact-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="label">GitHub</span>
+                </div>
+                <a href="https://github.com/yochuwakate-cmd" target="_blank"
+                  >yochuwakate-cmd</a
+                >
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-left">
+                  <div class="contact-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      ></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </div>
+                  <span class="label">LinkedIn</span>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/yochuwa-katedam-a54188433/"
+                  target="_blank"
+                  >yochuwa-katedam</a
+                >
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-left">
+                  <div class="contact-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <span class="label" data-i18n="lbl_location"
+                    >ที่อยู่ (Location)</span
+                  >
+                </div>
+                <span
+                  class="val"
+                  style="color: var(--ink); font-weight: 500"
+                  data-i18n="val_location"
+                  >กรุงเทพมหานคร, ประเทศไทย</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!--  จบหน้า: เกี่ยวกับฉัน (About me) -->
+      <!-- ============================================================ -->
+    </main>
+
+    <footer data-i18n="footer_text">
+      © 2026 Yochuwa Katedam. All rights reserved.
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
